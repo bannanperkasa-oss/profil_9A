@@ -1,115 +1,551 @@
 <!DOCTYPE html>
 <html lang="id">
-<kepala>
-<meta charset="UTF-8">
-<meta nama="viewport" konten="lebar=lebar-perangkat, skala-awal=1.0">
-<title>Profil Saya</title>
-<gaya>
-tubuh {
-keluarga font: Arial, sans-serif;
-batas: 0;
-bantalan: 0;
-tinggi garis: 1,6;
-latar belakang: #f4f4f4;
-warna: #333;
-}
-tajuk {
-latar belakang: #0077b6;
-warna: #fff;
-bantalan: 20px 0;
-teks-ratakan: tengah;
-}
-tajuk h1 {
-batas: 0;
-ukuran font: 2.2em;
-}
-tajuk p {
-margin: 5px 0;
-}
-navigasi {
-latar belakang: #023e8a;
-bantalan: 10 piksel;
-teks-ratakan: tengah;
-}
-navigasi {
-warna: #fff;
-margin: 0 15px;
-dekorasi teks: tidak ada;
-}
-navigasi a:hover {
-dekorasi teks: garis bawah;
-}
-bagian {
-bantalan: 30 piksel;
-lebar maks: 900 piksel;
-margin: otomatis;
-latar belakang: #fff;
-margin-atas: 20px;
-radius batas: 10 piksel;
-}
-h2 {
-warna: #0077b6;
-margin-bawah: 15px;
-}
-.keterampilan ul {
-gaya-daftar: tidak ada;
-bantalan: 0;
-}
-.keterampilan li {
-latar belakang: #90e0ef;
-margin: 5px 0;
-bantalan: 8px;
-radius batas: 5px;
-}
-catatan kaki {
-teks-ratakan: tengah;
-latar belakang: #03045e;
-warna: #fff;
-bantalan: 15 piksel;
-margin-atas: 20px;
-}
-</gaya>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Profil Personal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-pattern {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .skill-bar {
+            transition: width 1.5s ease-in-out;
+        }
+        
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #667eea;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #667eea }
+        }
+    </style>
 </head>
-<tubuh>
-<judul>
-<h1>Nama Anda</h1>
-<p>Pengembang Web | Desainer | Pekerja Lepas</p>
-</header>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0">
+                    <h1 class="text-2xl font-bold text-purple-600">Profile<span class="text-gray-800">.ID</span></h1>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Home</a>
+                        <a href="#about" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Tentang</a>
+                        <a href="#skills" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Keahlian</a>
+                        <a href="#portfolio" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Portfolio</a>
+                        <a href="#contact" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Kontak</a>
+                    </div>
+                </div>
+                
+                <div class="md:hidden">
+                    <button class="text-gray-700 hover:text-purple-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-<nav>
-<a href="#tentang">Tentang</a>
-<a href="#skills">Keahlian</a>
-<a href="#contact">Kontak</a>
-</nav>
+    <!-- Hero Section -->
+    <section id="home" class="hero-pattern min-h-screen flex items-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-white">
+                    <p class="text-lg mb-2">Halo, Saya</p>
+                    <h1 class="text-5xl md:text-6xl font-bold mb-4">Ahmad Rizky</h1>
+                    <div class="typewriter text-xl mb-6">
+                        Full Stack Developer & UI/UX Designer
+                    </div>
+                    <p class="text-lg mb-8 opacity-90">
+                        Saya seorang developer passionate yang senang menciptakan solusi digital yang inovatif dan user-friendly.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#portfolio" class="bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
+                            Lihat Portfolio
+                        </a>
+                        <a href="#contact" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition duration-300">
+                            Hubungi Saya
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-white opacity-20 rounded-full transform rotate-45"></div>
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/eba938a2-69c9-487e-9278-b9540444de7b.png" alt="Professional headshot of a smiling software developer in a modern office environment" class="rounded-2xl shadow-2xl w-full max-w-md mx-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="tentang">
-<h2>Tentang Saya</h2>
-<p>
-Lingkaran cahaya! Saya adalah seorang web developer yang suka membangun website
-modern dan responsif. Saya senang belajar teknologi baru dan
-mengembangkan keterampilan saya di bidang pemrograman.
-</p>
-</bagian>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Tentang Saya</h2>
+                <div class="w-20 h-1 bg-purple-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ca363685-e3a8-465d-8791-ba3931208577.png" alt="Developer working on laptop in a creative workspace with plants and modern decor" class="rounded-2xl shadow-lg">
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Cerita Singkat Tentang Perjalanan Saya</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Dengan pengalaman lebih dari 5 tahun di industri teknologi, saya telah mengembangkan berbagai aplikasi web dan mobile yang sukses. 
+                        Saya memiliki passion dalam menciptakan pengalaman pengguna yang luar biasa dan solusi teknologi yang scalable.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-purple-600 mb-2">50+</div>
+                            <div class="text-gray-600">Proyek Selesai</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-purple-600 mb-2">25+</div>
+                            <div class="text-gray-600">Klien Puas</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition duration-300">
+                            Download CV
+                        </a>
+                        <a href="#contact" class="border-2 border-purple-600 text-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-purple-600 hover:text-white transition duration-300">
+                            Mari Bekerja Sama
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="keterampilan" class="keterampilan">
-<h2>Orang Keahlian</h2>
-<ul>
-<li>HTML, CSS, JavaScript</li>
-<li>Bereaksi dan Vue.js</li>
-<li>Node.js dan Express</li>
-<li>Desain UI/UX</li>
-Bahasa Indonesia:
-</bagian>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Keahlian Saya</h2>
+                <div class="w-20 h-1 bg-purple-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4">Berbagai teknologi dan tools yang saya kuasai</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Technical Skills -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-8">Technical Skills</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700">HTML/CSS</span>
+                                <span class="text-purple-600">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-300 rounded-full h-2">
+                                <div class="skill-bar bg-purple-600 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700">JavaScript</span>
+                                <span class="text-purple-600">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-300 rounded-full h-2">
+                                <div class="skill-bar bg-purple-600 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700">React.js</span>
+                                <span class="text-purple-600">88%</span>
+                            </div>
+                            <div class="w-full bg-gray-300 rounded-full h-2">
+                                <div class="skill-bar bg-purple-600 h-2 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700">Node.js</span>
+                                <span class="text-purple-600">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-300 rounded-full h-2">
+                                <div class="skill-bar bg-purple-600 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Professional Skills -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-8">Professional Skills</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700">UI/UX Design</span>
+                                <span class="text-purple-600">92%</span>
+                            </div>
+                            <div class="w-full bg-gray-300 rounded-full h-2">
+                                <div class="skill-bar bg-purple-600 h-2 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700">Project Management</span>
+                                <span class="text-purple-600">87%</span>
+                            </div>
+                            <div class="w-full bg-gray-300 rounded-full h-2">
+                                <div class="skill-bar bg-purple-600 h-2 rounded-full" style="width: 87%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700">Communication</span>
+                                <span class="text-purple-600">93%</span>
+                            </div>
+                            <div class="w-full bg-gray-300 rounded-full h-2">
+                                <div class="skill-bar bg-purple-600 h-2 rounded-full" style="width: 93%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700">Problem Solving</span>
+                                <span class="text-purple-600">91%</span>
+                            </div>
+                            <div class="w-full bg-gray-300 rounded-full h-2">
+                                <div class="skill-bar bg-purple-600 h-2 rounded-full" style="width: 91%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<bagian id="kontak">
-<h2>Kontak</h2>
-<p>Surel: <a href="mailto: emailanda@gmail.com "> emailanda@gmail.com </a></p>
-<p>LinkedIn: https://linkedin.com/in/username linkedin.com/in/username </a></p>
-<p>GitHub: https://github.com/username github.com/username </a></p>
-</bagian>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Portfolio</h2>
+                <div class="w-20 h-1 bg-purple-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4">Beberapa project terbaik yang pernah saya kerjakan</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1a8ab654-ef46-4844-9da0-0cbdb5e81821.png" alt="Modern e-commerce dashboard interface with analytics charts and product management features" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-purple-600 text-white px-3 py-1 rounded-full text-sm">Web App</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">E-Commerce Dashboard</h3>
+                        <p class="text-gray-600 mb-4">Dashboard analytics untuk platform e-commerce dengan fitur real-time reporting.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">React</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Node.js</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">MongoDB</span>
+                        </div>
+                        <a href="#" class="text-purple-600 font-semibold hover:text-purple-700 transition duration-300">
+                            Lihat Detail →
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/24ee0b2b-945d-4792-9a41-9c33a17845f6.png" alt="Mobile banking application interface with clean design and financial transaction features" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">Mobile</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Banking App</h3>
+                        <p class="text-gray-600 mb-4">Aplikasi mobile banking dengan fitur keamanan tinggi dan UX yang intuitif.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Flutter</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Firebase</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">REST API</span>
+                        </div>
+                        <a href="#" class="text-purple-600 font-semibold hover:text-purple-700 transition duration-300">
+                            Lihat Detail →
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4fdc660f-770d-41a9-8054-38979bd28ea5.png" alt="Healthcare management system with patient records and appointment scheduling interface" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">SaaS</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Healthcare System</h3>
+                        <p class="text-gray-600 mb-4">Sistem manajemen rumah sakit dengan fitur appointment dan rekam medis digital.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Vue.js</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Laravel</span>
+                            <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">MySQL</span>
+                        </div>
+                        <a href="#" class="text-purple-600 font-semibold hover:text-purple-700 transition duration-300">
+                            Lihat Detail →
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition duration-300">
+                    Lihat Semua Project
+                </a>
+            </div>
+        </div>
+    </section>
 
-<kaki>
-<p>&salinan; 2025 Nama Anda. Semua Hak Dilindungi.</p>
-</footer>
-</tubuh>
-Bahasa Indonesia: </html>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Hubungi Saya</h2>
+                <div class="w-20 h-1 bg-purple-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4">Mari berdiskusi tentang project Anda berikutnya</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Informasi Kontak</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-purple-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-600">Email</p>
+                                <p class="text-gray-800 font-semibold">ahmad.rizky@email.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone text-purple-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-600">Telepon</p>
+                                <p class="text-gray-800 font-semibold">+62 812-3456-7890</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-purple-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-600">Lokasi</p>
+                                <p class="text-gray-800 font-semibold">Jakarta, Indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-4">Follow Saya</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-purple-600 text-white p-3 rounded-full hover:bg-purple-700 transition duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="bg-purple-600 text-white p-3 rounded-full hover:bg-purple-700 transition duration-300">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="bg-purple-600 text-white p-3 rounded-full hover:bg-purple-700 transition duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-purple-600 text-white p-3 rounded-full hover:bg-purple-700 transition duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <form class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Kirim Pesan</h3>
+                        
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2">Nama</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Nama lengkap">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">Email</label>
+                                <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="email@contoh.com">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 mb-2">Subjek</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Subjek pesan">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2">Pesan</label>
+                            <textarea rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Tulis pesan Anda di sini..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition duration-300">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-2xl font-bold mb-4">Ahmad Rizky</h2>
+                <p class="text-gray-400 mb-8">Full Stack Developer & UI/UX Designer</p>
+                
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                </div>
+                
+                <div class="border-t border-gray-700 pt-8">
+                    <p class="text-gray-400">© 2024 Ahmad Rizky. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-purple-600 text-white p-3 rounded-full shadow-lg hover:bg-purple-700 transition duration-300 opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Back to top button functionality
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Animate skill bars on scroll
+        const observerOptions = {
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-bar');
+                    skillBars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 100);
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+        
+        // Mobile menu toggle (simple implementation)
+        document.querySelector('.md\\:hidden button').addEventListener('click', () => {
+            alert('Menu mobile akan ditampilkan di sini');
+        });
+    </script>
+</body>
+</html>
+
